@@ -8,6 +8,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js"
 
 
@@ -50,6 +52,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+
 // rotes with files //
 app.post("/auth/register", upload.single("picture"), register);
 
@@ -57,6 +60,9 @@ app.post("/auth/register", upload.single("picture"), register);
 
 
 
+/*  Routes here  */
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 
 
