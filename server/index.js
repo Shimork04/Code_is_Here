@@ -8,9 +8,16 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import { verifyToken } from "./middleware/auth.js";
 import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
+import postRoutes from "./routes/posts.js"
+import restaurantRoutes from "./routes/restaurant.js";
+import { createPost } from "./controllers/posts.js"
 import { register } from "./controllers/auth.js"
+import User from "./models/User.js";
+import Post from "./models/Post.js";
+import Restaurant from "./models/Restaurant.js";
 
 
 
@@ -53,8 +60,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-// rotes with files //
-app.post("/auth/register", upload.single("picture"), register);
+// rotes with files - for posting //
+app.post("/auth/register", upload.single("picture"), verifyToken, register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 
 
@@ -63,7 +71,8 @@ app.post("/auth/register", upload.single("picture"), register);
 /*  Routes here  */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-
+app.use("/posts", postRoutes);
+app.use("/restaurants", restaurantRoutes);
 
 
 // mongo - setup //

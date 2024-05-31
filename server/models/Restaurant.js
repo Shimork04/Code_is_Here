@@ -1,4 +1,4 @@
-// implementing user table as made in our data model
+// implementing Restaurants table, yet to add to database and modelling
 
 import mongoose from "mongoose";
 
@@ -21,7 +21,7 @@ impressions : Number
 
 
 // particulars of how our database schema would look like
-const UserSchema = new mongoose.Schema(
+const RestaurantSchema = new mongoose.Schema(
   {
     // properties of first-name in user field
     firstName: {
@@ -66,5 +66,5 @@ const UserSchema = new mongoose.Schema(
 
 
 // modelling our schema to model our database
-const User = mongoose.model("User", UserSchema);
-export default User;
+const Restaurant = mongoose.model("User", RestaurantSchema);
+export default Restaurant;
