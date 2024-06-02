@@ -3,38 +3,36 @@
 import mongoose from "mongoose";
 
 /*
-// User Table fields
+// Restaurant info
 _id : String
-firstName : String
-lastname : String
+restaurantName : String    // name of restaurant
+location : String
 friends : Array<object>
 email : String
+contact: Number
 password : String
 picturePath : String Reg
-location : String
-occupation : String
+cuisine : String    // what are the various cuisine served
 viewedProfile : Number
 impressions : Number
 
 */
 
-
-
+// user data base yet to create
 // particulars of how our database schema would look like
 const RestaurantSchema = new mongoose.Schema(
   {
     // properties of first-name in user field
-    firstName: {
+    restaurantName: {
       type: String,
       required: true,
       min: 2,
       max: 50,
     },
-    lastName: {
-      type: String,
-      required: true,
-      min: 2,
-      max: 50,
+    location: String,
+    friends: {
+      type: Array,
+      default: [],
     },
     email: {
       type: String,
@@ -51,11 +49,7 @@ const RestaurantSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    friends: {
-      type: Array,
-      default: [],
-    },
-    location: String,
+    
     occupation: String,
     viewedProfile: Number,
     impressions: Number
