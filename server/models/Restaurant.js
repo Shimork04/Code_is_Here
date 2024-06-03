@@ -49,7 +49,7 @@ const RestaurantSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    
+    cuisine: String,
     occupation: String,
     viewedProfile: Number,
     impressions: Number
