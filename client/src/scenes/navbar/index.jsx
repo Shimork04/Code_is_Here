@@ -23,7 +23,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { state, setMode, setLogout } from "../../state/index";
 import { useNavigate } from "react-router-dom";
-import FlexBetween from "../../components/FlexBetween";
+import FlexBetween from "../components/FlexBetween";
 
 
 const Navbar = () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
         )}
 
 
-        
+
       </FlexBetween>
 
       {/* DESKTOP NAV */}

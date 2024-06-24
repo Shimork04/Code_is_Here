@@ -1,14 +1,14 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-import HomePage from './scenes/homePage';
-import Navbar from './scenes/navbar';
-import ProfilePage from './scenes/profilePage';
-import LoginPage from './scenes/loginPage';
+import HomePage from '../src/scenes/homePage';
+import Navbar from '../src/scenes/navbar';
+import ProfilePage from '../src/scenes/profilePage';
+import LoginPage from '../src/scenes/loginPage';
 // import { useState } from 'react';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { themeSettings } from './theme';
+import { themeSettings } from '../src/theme';
 
 
 
