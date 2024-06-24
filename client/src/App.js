@@ -3,24 +3,27 @@ import HomePage from './scenes/homePage';
 import Navbar from './scenes/navbar';
 import ProfilePage from './scenes/profilePage';
 import LoginPage from './scenes/loginPage';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { CssBaseline, ThemeProvider } from '@mmui/material';
-import { createTheme } from '@mmui/material/styles';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
 
 
 
 function App() {
 
-    const mdoe = useSelector((state) => state.mode);
-    const theme = useMemo(()=> createTheme(themeSettings))
+    const mode = useSelector((state) => state.mode);
+    const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
+
 
 
   return (
     <div className="App">
       <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Routes>
           {/* default page is login for now */}
           <Route path="/" element={<LoginPage />} />
@@ -31,7 +34,7 @@ function App() {
 
 
         </Routes>
-      
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );

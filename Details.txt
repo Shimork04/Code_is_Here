@@ -1,0 +1,14 @@
+// about the application
+
+- it is a flex-betweened application, sab kuch bich me dikhega
+- 
+
+
+
+
+
+// libraries and other stuff used
+formik - for creating form in react
+2. yup - for form validation in react
+3. muller
+4. mui/material - material ui - icons
